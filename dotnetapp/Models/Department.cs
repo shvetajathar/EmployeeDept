@@ -6,7 +6,7 @@ namespace dotnetapp.Models;
 public class Department
 {
     [Key]
-    public int Id{get;set;}
+    public int DepartmentId{get;set;}
     public string Name{get;set;}
     
     public ICollection<Employee> Employee{get;set;}

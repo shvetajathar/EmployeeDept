@@ -8,24 +8,72 @@ public class DepartmentController:Controller{
     public DepartmentController(ApplicationDbContext _context){
         context=_context;
     }
-    public IActionResult List(){
-        // var data=context.Employees.ToList();
-        var data=context.Employees.Include("Department").ToList();
+
+    public IActionResult Index()
+    {
+        var data=context.Departments.ToList();
         return View(data);
     }
-    public IActionResult Create(){
-        ViewBag.DeptId=new SelectList(context.Departments,"Id","Name");
+
+
+    public IActionResult Create()
+    {
         return View();
     }
     [HttpPost]
-    public IActionResult Create(Employee emp){
-        // if(ModelState.IsValid)
+    public IActionResult Create(Department department)
+    {
+        if(ModelState.IsValid)
         {
-            context.Employees.Add(emp);
+            context.Departments.Add(department);
             context.SaveChanges();
-            return RedirectToAction("List");
+            return RedirectToAction("Index");
+
         }
-        ViewBag.DeptId=new SelectList(context.Departments,"Id","Name");
-        return View(emp);
+        return View();
     }
+
+    public IActionResult Delete()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult DeleteConfirmed(int id)
+    {
+        if(ModelState.IsValid)
+        {
+            var data=context.Departments.Find(id);
+            context.Departments.Remove(data);
+            context.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+        return View();
+    }
+
+    [HttpPost]
+    public IActionResult DeleteConfirmed(Department dept)
+    {
+        
+            Department data=context.Departments.Find(dept.DepartmentId);
+            if(data==null)
+            {
+                return NotFound();
+            }
+            return View();
+           
+        
+
+       
+    }
+
+
+
+
+
+
+    
+
 }
