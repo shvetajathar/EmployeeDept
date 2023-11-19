@@ -6,12 +6,12 @@ namespace dotnetapp.Models;
 public class Employee
 {
     [Key]
-    public int EmployeeId{get;set;}
-    public string FirstName{get;set;}
-    public string LastName{get;set;}
+    public int ? EmployeeId{get;set;}
+    public string ? FirstName{get;set;}
+    public string ? LastName{get;set;}
     [ForeignKey("Department")]
-    public int DepartmentId{get;set;}
-    public Department Department{get;set;}
+    public int ? DepartmentId{get;set;}
+    public Department?  Department{get;set;}
     
     
 }

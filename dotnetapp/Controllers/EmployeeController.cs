@@ -33,8 +33,16 @@ public class EmployeeController:Controller{
         }
         return View();
     }
+    public IActionResult Edit(int id)
+    {
+        return View();
 
-    public IActionResult Delete()
+        
+
+
+    }
+
+    public IActionResult Delete(int id)
     {
         return View();
     }

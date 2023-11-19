@@ -33,7 +33,7 @@ public class DepartmentController:Controller{
         return View();
     }
 
-    public IActionResult Delete()
+    public IActionResult Delete(int id)
     {
         return View();
     }
