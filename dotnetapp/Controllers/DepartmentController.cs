@@ -3,9 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using dotnetapp.Models;
 namespace dotnetapp.Controllers;
-public class EmployeeController:Controller{
+public class DepartmentController:Controller{
     private readonly ApplicationDbContext context;
-    public EmployeeController(ApplicationDbContext _context){
+    public DepartmentController(ApplicationDbContext _context){
         context=_context;
     }
     public IActionResult List(){

@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace dotnetapp.Models;
-public class Dept
+public class Department
 {
     [Key]
     public int Id{get;set;}
